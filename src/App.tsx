@@ -1,0 +1,125 @@
+import { motion } from 'framer-motion';
+import './App.css';
+import Header from './components/Header';
+import HeroSection from './components/HeroSection';
+import About from './components/About';
+import Services from './components/Services';
+import Industries from './components/Industries';
+import Process from './components/Process';
+
+function App() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <div className="relative min-h-screen bg-background overflow-hidden">
+      {/* AI Gradient Blobs - Fixed to viewport */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="absolute w-[600px] h-[600px] bg-indigo-200/40 blur-[160px] rounded-full -top-40 -left-40"></div>
+        <div className="absolute w-[550px] h-[550px] bg-purple-200/40 blur-[150px] rounded-full bottom-0 right-0"></div>
+      </div>
+
+      {/* Faint AI Grid Pattern - Fixed to viewport */}
+      <div className="fixed inset-0 opacity-[0.15] bg-[radial-gradient(circle,rgba(0,0,0,0.25)_1px,transparent_1px)] [background-size:18px_18px] pointer-events-none z-0"></div>
+
+      <div className="relative z-10">
+      <Header scrollToSection={scrollToSection} />
+      
+      <HeroSection scrollToSection={scrollToSection} />
+
+      <About />
+
+      <Services />
+
+      <Industries />
+
+      <Process />
+
+      {/* CTA Section - Bold gradient from primary to purple */}
+      <section id="contact" className="py-20 px-6 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
+        <div className="container mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Ready to Build the Future with AI?
+            </h2>
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+              Let's turn your data into intelligent solutions.
+            </p>
+            <motion.button
+              className="px-10 py-5 bg-white text-primary-600 rounded-full font-bold text-lg shadow-2xl"
+              whileHover={{ scale: 1.1, boxShadow: '0 20px 60px rgba(0,0,0,0.3)' }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Contact Us Today
+            </motion.button>
+
+            <div className="mt-12 flex flex-col md:flex-row justify-center items-center gap-8 text-white">
+              <motion.div whileHover={{ scale: 1.05 }} className="flex items-center gap-2">
+                <span className="text-2xl">✉</span>
+                <span className="text-lg">info@solutionobjects.com</span>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} className="flex items-center gap-2">
+                <span className="text-2xl">🌐</span>
+                <span className="text-lg">www.solutionobjects.com</span>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12 px-6">
+        <div className="container mx-auto">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              Solution Objects Software Pvt Ltd
+            </h3>
+            <div className="flex justify-center gap-6 mb-6">
+              {[
+                { name: 'LinkedIn', icon: '💼' },
+                { name: 'Twitter', icon: '🐦' },
+                { name: 'YouTube', icon: '📺' },
+              ].map((social, index) => (
+                <motion.a
+                  key={index}
+                  href="#"
+                  className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
+                  whileHover={{ scale: 1.2, rotate: 360 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <span className="text-2xl">{social.icon}</span>
+                </motion.a>
+              ))}
+            </div>
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-400 mb-4">
+              <a href="#" className="hover:text-white transition-colors">
+                Privacy Policy
+              </a>
+              <a href="#" className="hover:text-white transition-colors">
+                Terms of Service
+              </a>
+              <a href="#" className="hover:text-white transition-colors">
+                Careers
+              </a>
+            </div>
+          </div>
+          <div className="text-center text-gray-500 text-sm border-t border-gray-800 pt-6">
+            © 2025 Solution Objects Software Pvt Ltd. All Rights Reserved.
+          </div>
+        </div>
+      </footer>
+      </div>
+    </div>
+  );
+}
+
+export default App;
