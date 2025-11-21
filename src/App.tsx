@@ -14,6 +14,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import CareerPage from './pages/CareerPage';
 import { useEffect } from "react";
+import ScrollToTop from './components/scrollup';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <div className="relative min-h-screen bg-background overflow-hidden">
         {/* AI Gradient Blobs - Fixed to viewport */}
         <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
