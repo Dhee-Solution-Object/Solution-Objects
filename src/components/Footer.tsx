@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
           <div className="flex items-center gap-2 mb-2">
             <img src={Logo} alt="Logo" className="w-8 h-8 object-contain" />
-            <span className="text-2xl font-roboto-condensed tracking-tight">
+            <span className="text-2xl font-roboto-condensed ">
               <span className="text-red-600">Solution</span>
               <span className="text-white-700">Objects</span>
             </span>

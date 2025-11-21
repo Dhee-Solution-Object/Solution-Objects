@@ -28,7 +28,7 @@ export default function Header({ scrollToSection }: HeaderProps) {
       <nav className="container mx-auto px-8 py-5">
         <div className="flex items-center justify-between">
           <motion.div
-            className="text-2xl md:text-3xl font-bold flex items-center gap-3 cursor-pointer"
+            className="text-3xl md:text-3xl flex items-center gap-2 cursor-pointer"
             whileHover={{ scale: 1.02 }}
             onClick={() => scrollToSection('home')}
           >
@@ -42,7 +42,10 @@ export default function Header({ scrollToSection }: HeaderProps) {
             </div>
             {/* Text */}
             <div className="flex items-center">
-              <span className="text-red-600">Solution</span><span className="text-gray-900">Objects</span>
+              <span className="text-4xl font-roboto-condensed ">
+              <span className="text-red-600">Solution</span>
+              <span className="text-gray-700">Objects</span>
+            </span>
               
             </div>
           </motion.div>
