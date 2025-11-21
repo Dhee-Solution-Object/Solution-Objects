@@ -1,54 +1,58 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
-function Process() {
+export default function Process() {
   const processes = [
     {
-      step: '01',
-      title: 'Discovery & Consultation',
+      step: "01",
+      title: "Discovery & Consultation",
       description:
-        'We analyze your business needs, identify opportunities, and define project scope and objectives.',
+        "We understand your business, define the scope, and identify high-impact AI opportunities.",
     },
     {
-      step: '02',
-      title: 'Data Collection & Preparation',
+      step: "02",
+      title: "Data Preparation",
       description:
-        'Gather, clean, and prepare high-quality datasets essential for training accurate AI models.',
+        "Collect, clean, and prepare high-quality datasets for training powerful models.",
     },
     {
-      step: '03',
-      title: 'Model Development',
+      step: "03",
+      title: "Model Development",
       description:
-        'Design, train, and optimize machine learning models using cutting-edge algorithms and techniques.',
+        "Build and optimize cutting-edge AI/ML models tailored to your business goals.",
     },
     {
-      step: '04',
-      title: 'Integration & Deployment',
+      step: "04",
+      title: "Integration & Deployment",
       description:
-        'Seamlessly integrate AI solutions into your existing systems and deploy to production environments.',
+        "Deliver seamless integration into your existing systems with cloud-ready deployment.",
     },
     {
-      step: '05',
-      title: 'Monitoring & Optimization',
+      step: "05",
+      title: "Monitoring & Optimization",
       description:
-        'Continuously monitor performance, gather feedback, and refine models for optimal results.',
+        "Track performance, enhance accuracy, and fine-tune models for maximum ROI.",
     },
     {
-      step: '06',
-      title: 'Support & Maintenance',
+      step: "06",
+      title: "Support & Maintenance",
       description:
-        'Provide ongoing support, updates, and enhancements to ensure long-term success.',
+        "Ongoing updates, scaling support, and long-term reliability for your AI systems.",
     },
   ];
 
   return (
-    <section id="process" className="relative py-28 px-6 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
-      {/* Animated Background Blurs */}
+    <section
+      id="process"
+      className="relative py-32 px-6 bg-[#f8f8ff] overflow-hidden"
+    >
+      {/* Premium background FX */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute w-[500px] h-[500px] bg-purple-200/30 blur-[150px] rounded-full -top-32 -left-32"></div>
-        <div className="absolute w-[500px] h-[500px] bg-indigo-200/30 blur-[150px] rounded-full bottom-0 right-0"></div>
+        <div className="absolute w-[600px] h-[600px] bg-purple-300/20 blur-[180px] rounded-full -top-40 left-0"></div>
+        <div className="absolute w-[600px] h-[600px] bg-indigo-300/20 blur-[180px] rounded-full bottom-0 right-0"></div>
       </div>
 
-      <div className="container mx-auto relative z-10">
+      <div className="relative z-10 max-w-5xl mx-auto">
+        {/* Section title */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -56,56 +60,67 @@ function Process() {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Our Process</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            A premium methodology to deliver AI solutions efficiently
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
+            Our Premium Process
+          </h2>
+          <p className="text-xl text-gray-600 mt-4">
+            A world-class workflow designed for precision and excellence
           </p>
         </motion.div>
 
-        <div className="relative max-w-4xl mx-auto">
-          {/* Vertical Timeline Line */}
-          <div className="absolute left-10 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-300 to-indigo-300 rounded"></div>
+        <div className="relative">
+  {/* Fixed Height Vertical Line */}
+  <div
+    className="absolute left-1/2 transform -translate-x-1/2 bg-gradient-to-b from-purple-400 to-indigo-400 rounded-full"
+    style={{
+      width: "3px",
+      top: "60px",
+      bottom: "60px",
+    }}
+  ></div>
 
-          {processes.map((process, index) => (
-            <motion.div
-              key={index}
-              className="flex gap-6 mb-16 relative z-10"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.2, duration: 0.6 }}
-            >
-              {/* Step Circle with Animated Graphics */}
-              <div className="flex-shrink-0 relative z-10">
-                <motion.div
-                  className="w-16 h-16 rounded-full flex items-center justify-center font-bold text-white shadow-lg bg-gradient-to-br from-purple-400 to-indigo-400 cursor-pointer"
-                  whileHover={{ scale: 1.3, rotate: 360 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  {process.step}
-                </motion.div>
-                {/* Pulse Effect */}
-                <motion.div
-                  className="absolute w-20 h-20 rounded-full bg-purple-400/20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                  animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0.2, 0.4] }}
-                  transition={{ repeat: Infinity, duration: 2 }}
-                />
-              </div>
+  <div className="flex flex-col gap-20">
+    {processes.map((process, index) => {
+      const isLeft = index % 2 === 0;
+      return (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: index * 0.15 }}
+          className={`relative flex items-center ${
+            isLeft ? "justify-start" : "justify-end"
+          }`}
+        >
+          {/* Card */}
+          <motion.div
+            whileHover={{ y: -10, scale: 1.03 }}
+            transition={{ duration: 0.3 }}
+            className="w-[90%] md:w-[45%] bg-white/80 backdrop-blur-lg p-8 rounded-3xl shadow-xl border border-white/40 relative"
+          >
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">
+              {process.title}
+            </h3>
+            <p className="text-gray-600 leading-relaxed">
+              {process.description}
+            </p>
+          </motion.div>
 
-              {/* Card */}
-              <motion.div
-                className="bg-white p-6 rounded-2xl shadow-md flex-1 hover:shadow-xl transition-shadow"
-                whileHover={{ x: 10 }}
-              >
-                <h3 className="text-xl font-bold text-gray-800 mb-2">{process.title}</h3>
-                <p className="text-gray-500">{process.description}</p>
-              </motion.div>
-            </motion.div>
-          ))}
-        </div>
+          {/* Step bubble (centered on the line) */}
+          <motion.div
+            whileHover={{ scale: 1.2 }}
+            className="absolute left-1/2 transform -translate-x-1/2 w-20 h-20 rounded-full bg-gradient-to-br from-purple-500 to-indigo-500 text-white font-extrabold shadow-[0_0_25px_rgba(140,82,255,0.6)] flex items-center justify-center text-xl border-4 border-white"
+          >
+            {process.step}
+          </motion.div>
+        </motion.div>
+      );
+    })}
+  </div>
+</div>
+
       </div>
     </section>
   );
 }
-
-export default Process;

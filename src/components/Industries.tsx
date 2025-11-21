@@ -14,7 +14,7 @@ const industries = [
 
 export default function Industries() {
   return (
-    <section className="relative py-28 px-6 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden">
+    <section id="industries" className="relative py-28 px-6 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <motion.div
