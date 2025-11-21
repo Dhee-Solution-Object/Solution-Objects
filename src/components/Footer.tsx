@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Linkedin, Twitter, Mail, Globe } from 'lucide-react';
 import Logo from '../assets/SO.png';
 
@@ -23,9 +24,9 @@ const Footer = () => {
 
         {/* CENTER — Company Links */}
         <div className="flex gap-6 text-gray-400 text-sm">
-          <a href="/privacy-policy" className="hover:text-white transition">Privacy Policy</a>
-          <a href="/terms-of-service" className="hover:text-white transition">Terms of Service</a>
-          <a href="/career" className="hover:text-white transition">Careers</a>
+          <Link to="/privacy-policy" className="hover:text-white transition">Privacy Policy</Link>
+          <Link to="/terms-of-service" className="hover:text-white transition">Terms of Service</Link>
+          <Link to="/career" className="hover:text-white transition">Careers</Link>
         </div>
 
         {/* RIGHT — Social Icons */}

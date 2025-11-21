@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import bgImage from '../assets/bg.jpg'; // adjust path
 
 interface CTASectionProps {
@@ -10,6 +11,8 @@ export default function CTASection({
   className = '', 
   id = 'contact' 
 }: CTASectionProps) {
+  const navigate = useNavigate();
+  
   return (
     <section
       id={id}
@@ -41,7 +44,7 @@ export default function CTASection({
             className="px-10 py-5 bg-indigo-600 text-white rounded-full font-bold text-lg shadow-2xl"
             whileHover={{ scale: 1.1, boxShadow: '0 20px 60px rgba(0,0,0,0.3)' }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => window.location.href = '/contact'}
+            onClick={() => navigate('/contact')}
           >
             Contact Us Today
           </motion.button>
