@@ -1,6 +1,5 @@
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import './App.css';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
@@ -8,13 +7,13 @@ import About from './components/About';
 import Services from './components/Services';
 import Industries from './components/Industries';
 import Process from './components/Process';
+import Footer from './components/Footer';
+import CTASection from './components/CTASection';
 import ContactPage from './pages/ContactPage';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import CareerPage from './pages/CareerPage';
 import { useEffect } from "react";
-import { Linkedin, Twitter, Youtube } from "lucide-react";
-import Logo from './assets/SO.png';
 
 
 function App() {
@@ -57,133 +56,9 @@ function App() {
 
                 <Process />
 
-                {/* CTA Section - Bold gradient from primary to purple */}
-                <section id="contact" className="py-20 px-6 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
-                  
-                  <div className="container mx-auto text-center">
-                    <motion.div
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6 }}
-                    >
-                      <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                        Ready to Build the Future with AI?
-                      </h2>
-                      <p className="text-xl text-white/90 mb-4 max-w-2xl mx-auto">
-                        Let's turn your data into intelligent solutions.
-                      </p>
-                      <motion.button
-                        className="px-10 py-5 bg-white text-primary-600 rounded-full font-bold text-lg shadow-2xl"
-                        whileHover={{ scale: 1.1, boxShadow: '0 20px 60px rgba(0,0,0,0.3)' }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={() => window.location.href = '/contact'}
-                      >
-                        Contact Us Today
-                      </motion.button>
+                <CTASection />
 
-                      <div className="mt-12 flex flex-col md:flex-row justify-center items-center gap-8 text-white">
-                        <motion.a 
-                          href="mailto:info@solutionobjects.com" 
-                          whileHover={{ scale: 1.05 }} 
-                          className="flex items-center gap-2 hover:underline"
-                        >
-                          <span className="text-2xl">✉</span>
-                          <span className="text-lg">info@solutionobjects.com</span>
-                        </motion.a>
-                        <motion.a 
-                          href="https://www.solutionobjects.com" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          whileHover={{ scale: 1.05 }} 
-                          className="flex items-center gap-2 hover:underline"
-                        >
-                          <span className="text-2xl">🌐</span>
-                          <span className="text-lg">www.solutionobjects.com</span>
-                        </motion.a>
-                      </div>
-                    </motion.div>
-                  </div>
-                </section>
-
-          <footer className="bg-gray-950 text-gray-300 pt-24 pb-16 px-6 border-t border-white/10">
-  <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-20">
-
-    {/* LEFT — Brand */}
-    <div className="flex flex-col items-center md:items-start text-center md:text-left">
-      <div className="flex items-center gap-5 mb-6">
-        <img src={Logo} alt="Logo" className="w-16 h-16 object-contain" />
-
-        <div className="text-5xl font-roboto-condensed tracking-tight">
-          <span className="text-red-600">Solution</span>
-          <span className="text-white">Objects</span>
-        </div>
-      </div>
-
-      <p className="text-gray-400 leading-relaxed text-[16px] max-w-sm">
-        Building intelligent AI, automation and advanced software products that 
-        enhance decision-making, streamline operations, and transform industries.
-      </p>
-    </div>
-
-    {/* CENTER — Company Links */}
-    <div className="flex flex-col items-center text-center">
-      <h4 className="text-xl font-semibold mb-5 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-        Company
-      </h4>
-
-      <ul className="space-y-3 text-gray-400 text-[17px] font-light">
-        <li><a href="/privacy-policy" className="hover:text-white transition">Privacy Policy</a></li>
-        <li><a href="/terms-of-service" className="hover:text-white transition">Terms of Service</a></li>
-        <li><a href="/career" className="hover:text-white transition">Careers</a></li>
-      </ul>
-    </div>
-
-    {/* RIGHT — Social + CTA */}
-    <div className="flex flex-col items-center md:items-end text-center md:text-right">
-      <h4 className="text-xl font-semibold mb-5 bg-gradient-to-r from-indigo-400 to-pink-400 bg-clip-text text-transparent">
-        Connect With Us
-      </h4>
-
-      <div className="flex gap-6 mb-7">
-        {/* LinkedIn */}
-        <motion.a
-          href="https://www.linkedin.com/company/solution-objects-software-private-limited"
-          target="_blank"
-          whileHover={{ scale: 1.2 }}
-          className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center 
-                     backdrop-blur-md hover:bg-white/20 transition shadow-xl"
-        >
-          <Linkedin className="w-7 h-7 text-gray-200" />
-        </motion.a>
-
-        {/* Twitter */}
-        <motion.a
-          href="#"
-          whileHover={{ scale: 1.2 }}
-          className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center 
-                     backdrop-blur-md hover:bg-white/20 transition shadow-xl"
-        >
-          <Twitter className="w-7 h-7 text-gray-200" />
-        </motion.a>
-      </div>
-
-      {/* CTA Button */}
-      <a
-        href="#contact"
-        className="inline-block px-7 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl
-                   text-white font-medium text-[16px] hover:opacity-90 transition shadow-lg shadow-indigo-500/20"
-      >
-        Contact Us
-      </a>
-    </div>
-  </div>
-
-  {/* Bottom Section */}
-  <div className="max-w-7xl mx-auto mt-16 pt-6 border-t border-white/10 text-center text-gray-500 text-[15px]">
-    © {new Date().getFullYear()} Solution Objects Software Pvt Ltd. All Rights Reserved.
-  </div>
-</footer>
+                <Footer />
 
 
 
