@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Linkedin, Twitter, Mail, Globe } from 'lucide-react';
-import Logo from '../assets/SO.png';
+import Logo from '../assets/SOfooter.png';
 
 const Footer = () => {
   return (
